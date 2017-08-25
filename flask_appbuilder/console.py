@@ -22,6 +22,7 @@ except ImportError:
 from io import BytesIO
 
 SQLA_REPO_URL = 'https://github.com/dpgaspar/Flask-AppBuilder-Skeleton/archive/master.zip'
+GRACEF = 'https://github.com/afidegnum/gracef/archive/master.zip'
 MONGOENGIE_REPO_URL = 'https://github.com/dpgaspar/Flask-AppBuilder-Skeleton-me/archive/master.zip'
 ADDON_REPO_URL = 'https://github.com/dpgaspar/Flask-AppBuilder-Skeleton-AddOn/archive/master.zip'
 
