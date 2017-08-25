@@ -215,7 +215,7 @@ def babel_compile(target):
 
 @cli_app.command("create-app")
 @click.option('--name', prompt="Your new app name", help="Your application name, directory will have this name")
-@click.option('--engine', prompt="Your engine type, SQLAlchemy or MongoEngine", type=click.Choice(['SQLAlchemy', 'MongoEngine']),
+@click.option('--engine', prompt="Your engine type, GRACEF, SQLAlchemy or MongoEngine", type=click.Choice(['SQLAlchemy', 'MongoEngine', 'gracef']),
               default='SQLAlchemy', help='Write your engine type')
 def create_app(name, engine):
     """
@@ -228,6 +228,9 @@ def create_app(name, engine):
         elif engine.lower() =='mongoengine':
             url = urlopen(MONGOENGIE_REPO_URL)
             dirname = "Flask-AppBuilder-Skeleton-me-master"
+        elif engine.lower() =='gracef':
+            url = urlopen(GRACEF)
+            dirname = "gracef"
         zipfile = ZipFile(BytesIO(url.read()))
         zipfile.extractall()
         os.rename(dirname, name)
@@ -239,6 +242,8 @@ def create_app(name, engine):
             click.echo(click.style('Try downloading from {0}'.format(SQLA_REPO_URL), fg='green'))
         elif engine.lower() =='mongoengine':
             click.echo(click.style('Try downloading from {0}'.format(MONGOENGIE_REPO_URL), fg='green'))
+        elif engine.lower() =='gracef':
+            click.echo(click.style('Try downloading from {0}'.format(GRACEF), fg='green'))
         return False
 
 
